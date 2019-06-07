@@ -1,6 +1,9 @@
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
+import React from 'react';
 import Card from './Card';
 import PropTypes from 'prop-types';
+import uuid from 'uuid';
+
 
 const Cards = props => {
 	return (
@@ -8,7 +11,7 @@ const Cards = props => {
 			{/* Using the cards prop, map over the list creating a 
           new Card component for each passing the card as the only prop*/}
 			{props.cards.map(card => (
-				<Card card={card} />
+				<Card key = {uuid()} card={card} />
 			))}
 		</div>
 	);

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import Tabs from './Tabs';
 import Cards from './Cards';
 
@@ -11,8 +10,8 @@ export default class Content extends Component {
 		super(props);
 		this.state = {
 			selected: 'all',
-			tabs: [],
-			cards: [],
+			tabs: tabData,
+			cards: cardData,
 		};
 	}
 
@@ -38,7 +37,11 @@ export default class Content extends Component {
         - else, it should only return those cards whose 'tab' matched this.state.selected.
     */
 		return this.state.cards;
-	};
+  };
+  
+  test = () => {
+
+  }
 
 	render() {
 		return (
@@ -48,7 +51,7 @@ export default class Content extends Component {
           `selectedTab` that includes the currently selected tab
           and `selectTabHandler` that includes the function to change the selected tab
         */}
-				<Tabs tabs={this.state.tabs} />
+				<Tabs tabs={this.state.tabs} selectedTab={this.state.selected} selectTabHandler={this.test}/>
 				<Cards cards={this.filterCards()} />
 			</div>
 		);
