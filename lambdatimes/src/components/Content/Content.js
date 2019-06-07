@@ -39,8 +39,10 @@ export default class Content extends Component {
 		return this.state.cards;
   };
   
-  test = () => {
+  test0 = () => {
+  }
 
+  test1 = () => {
   }
 
 	render() {
@@ -51,8 +53,9 @@ export default class Content extends Component {
           `selectedTab` that includes the currently selected tab
           and `selectTabHandler` that includes the function to change the selected tab
         */}
-				<Tabs tabs={this.state.tabs} selectedTab={this.state.selected} selectTabHandler={this.test}/>
-				<Cards cards={this.filterCards()} />
+				<Tabs tabs={this.state.tabs} selectedTab={this.state.selected} selectTabHandler={this.test0}/>
+				{/* <Cards cards={this.filterCards()} /> */}
+				<Cards cards={this.state.cards} />
 			</div>
 		);
 	}
