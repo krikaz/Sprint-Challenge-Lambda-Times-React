@@ -6,28 +6,30 @@ export default class Carousel extends Component {
 		super(props);
 		this.state = {
 			carousel: carouselData,
-			carouselImg: 0,
+      count: 0,
 		};
 	}
 	componentDidMount() {
 		this.setState({ carousel: carouselData });
-		console.log(this.state.carousel);
+		// console.log(this.state.carousel);
 	}
 
 	leftClick = () => {
-		this.setState({ carouselImg: this.carouselImg - 1 });
-		console.log(this.state.carouselImg);
+    this.state.count === 0 ?
+      this.setState({ count: 3 }) :
+      this.setState({ count: this.state.count - 1 })
 	};
 
 	rightClick = () => {
-		this.setState({ carouselImg: this.carouselImg + 1 });
-		console.log(this.state.carouselImg);
+    this.state.count === 3 ?
+      this.setState({ count: 0 }) :
+      this.setState({ count: this.state.count + 1 })
 	};
 
-	selectedImage = () => {
+	selectedImage = (number) => {
 		return (
 			<img
-				src={this.state.carousel[this.state.carouselImg]}
+				src={this.state.carousel[number]}
 				style={{ display: 'block' }}
 				alt="carou not working"
 			/>
@@ -40,7 +42,7 @@ export default class Carousel extends Component {
 				<div className="left-button" onClick={this.leftClick}>
 					{'<'}
 				</div>
-				{this.selectedImage()}
+				{this.selectedImage(this.state.count)}
 				<div className="right-button" onClick={this.rightClick}>
 					{'>'}
 				</div>
