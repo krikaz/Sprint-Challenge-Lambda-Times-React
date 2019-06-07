@@ -12,7 +12,7 @@ const Tab = props => {
 		tabClass = 'tab';
 	}
 
-	const clickHandler = props.selectTabHandler(props.tab);
+	const clickHandler = () => {props.selectTabHandler(props.tab);}
 
 	return (
 		<div
